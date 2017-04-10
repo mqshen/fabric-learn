@@ -1,0 +1,1 @@
+当链启动后Endorser的ProcessPropsal接口就开始接收交易请求。
