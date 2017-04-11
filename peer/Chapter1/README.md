@@ -12,14 +12,11 @@ peer通过使用命令：
 4. 向grpc server注册chaincode support server
 5. 向grpc server注册admin server
 6. 创建endorser server并注册到grpc server
-7. 创建Chain（createChain(chainID)）
-8. 初始化gossip服务     
-9. 创建deliver服务     
-10. 创建ledger commiter
-11. 创建或获取创世区块     
-12. commiter和区块加入deliver渠道     
-13. 启动grpc server
-14. 启动event hub server
+7. 初始化gossip服务     
+8. 如果peer-defaultchain没有设置为false则会创建genesis block，然后由这个创世区块来创建Chain（CreateChainFromBlock(block)）
+9. peer初始化
+10. 启动grpc server
+11. 启动event hub server
 
 ##### 注册chaincode support server     
 1. 创建Chaincode Support实例(chaincode.NewChaincodeSupport)     
