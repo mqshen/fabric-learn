@@ -8,3 +8,6 @@
 * [Orderer](orderer/README.md)
     * [启动](orderer/start.md)
     * [Broadcast Handler](orderer/broadcast.md)
+    * [SBFT](orderer/sbft.md)
+* [Channel](channel/README.md)
+    * [Join](channel/join.md)

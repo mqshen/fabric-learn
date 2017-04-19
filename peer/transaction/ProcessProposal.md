@@ -1,7 +1,7 @@
 #### ProcessProposal     
 core/endorser/endorser.go->ProcessProposal     
 core/peer/msgvalidation.go->ValidateProposalMessage  //验证proposal并返回proposal      
-core/endorser/endorser.go->checkACL                  //权限校验，目前处在FAB-2457- we need to fix this right 
+core/endorser/endorser.go->checkACL                  //权限校验，目前处在FAB-2457- we need to fix this right
 core/endorser/endorser.go->getTxSimulator            //根据proposal提供的ChainID获取transaction simulator     
 core/endorser/endorser.go->simulateProposal          //simulate chaincode调用      
 core/endorser/endorser.go->endorseProposal           //通过调用ESCC来为proposal背书      
@@ -12,23 +12,23 @@ core/endorser/endorser.go->endorseProposal           //通过调用ESCC来为pro
 core/ledger/kvledger/kv_ledgers.go->GetLedger        //根据chainName获取ledger
 core/ledger/kvledger/kv_ledger.go->NewTxSimulator()  //获取transaction simulator
 
-#### GetLedger      
+###### GetLedger      
 从lManager中获取对应chainName的ledger。这些ledgers是通过peer node实例化的使用通过调用:    
 core/ledger/kvledger/kv_ledgers.go->CreateLedger     
 来创建的。
 
 
-#### NewTxSimulator    
+###### NewTxSimulator    
 调用ledger对应的tx manager来创建transaction simulator
 
 #### simulateProposal    
 1. 获取proposal的ChaincodeInvocationSpec     
-//2. 检查ACL    
+[comment]: //2. 检查ACL    
 3. 检查chaincode的ESCC和VSCC    
 4. 执行proposal（callChaincode）    
 5. 获取模拟执行结果    
 
-#### callChaincode(判断是部署或是调用交易)    
+###### callChaincode(判断是部署或是调用交易)    
 1. 判断是否为系统chaincode     
 2. 创建chaincode context     
 3. 执行chaincode（chaincode.ExecuteChaincode）     
@@ -88,5 +88,3 @@ core/ledger/kvledger/kv_ledgers.go->CreateLedger
 下面只说下dockercontroller的createContainer方法：    
 1. 构造docker.Config和docker.CreateContainerOptions    
 2. 调用docker client的CreateContainer创建container     
-
-
