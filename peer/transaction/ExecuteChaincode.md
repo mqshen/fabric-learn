@@ -6,9 +6,14 @@ core/chaincode/chaincodeexec.go->ExecuteChaincode
 
 如果不是部署chaincode就把消息类型设置为 ChaincodeMessage_TRANSACTION
 
-theChaincodeSupport.Launch 启动chaincode     
+theChaincodeSupport.Launch 获取 chaincode runtime enviroment    
 createCCMessage 创建 chaincode message      
 theChaincodeSupport.Execute 执行chaincode      
+
+#### chaincode_support.go->Launch    
+判断 chaincode 是否已经启动，如果未启动则尝试启动
+根据 chaincodeName 从的 runningChainCodes 中获取 chaincode runtime enviroment(chrte)      
+如果此 chaincode 还没有启动，且不是系统 chaincode 那么读取部署时的交易，从中获取 deploy payload 并重新启动注册
 
 #### chaincode_support.go->Execute      
 1. 根据chaincode id获取chaincode runtime enviroment->chrte      
@@ -91,9 +96,9 @@ core/chaincode/shim/handler.go
 	  // Establish stream with validating peer
 	  stream, err := chaincodeSupportClient.Register(context.Background())
 
-
-
 core/chaincode/shim/chaincode.go Start 注册与peer与chaincode通讯
+
+通过 handler.serialSendAsync(in, errc) 把消息发给 chaincode 。
 
 err = creator.Verify(msg, sig)
 2016-12-20 19:33:12.462 CST [chaincode] processStream -> ERRO 0c9 Got error: transaction not found bonust/**TEST_CHAINID**
