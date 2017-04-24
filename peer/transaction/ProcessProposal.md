@@ -32,12 +32,7 @@ core/ledger/kvledger/kv_ledgers.go->CreateLedger
 1. 判断是否为系统chaincode     
 2. 创建chaincode context     
 3. 执行chaincode（chaincode.ExecuteChaincode）     
-4. 如果是部署或更新那就根据ChaincodeSpec中指定的Name创建新的chaincode context，并部署（e.deploy）     
-
-#### e.deploy     
-1. 调用chaincodeSupport部署chaincode(chaincodeSupport.Deploy)    
-2. 调用chaincodeSupport启动chaincode(chaincodeSupport.Launch)    
-3. 调用chaincodeSupport停止chaincode(chaincodeSupport.Stop)    
+4. 如果是部署或更新那就根据ChaincodeSpec中指定的Name创建新的chaincode context，并部署
 
 #### chaincodeSupport.Deploy    
 1. 获取runningChaincodes锁      
@@ -66,11 +61,7 @@ core/ledger/kvledger/kv_ledgers.go->CreateLedger
 2. 判断chaincode是否已经启动     
 3. 从runningChaincodes.chaincodeMap中删除对应的chaincode name     
 
-#### chaincodeSupport.launchAndWaitForRegister     
-1. chaincode启动前的准备（chaincodeSupport.preLaunchSetup）     
-2. 获取chaincode的环境及参数     
-3. 构造container.StartImageReq      
-4. 调用container.VMCProcess启动container      
+
 
 #### chaincodeSupport.preLaunchSetup
 1. 创建chaincode runtime enviroment，并加入runningChaincodes.chaincodeMap     

@@ -21,7 +21,7 @@ chainsupport包含的chain是由
 
     cs.chain, err = consenter.HandleChain(cs, metadata)    
 
-来创建的。support.Enqueue(msg) 
+来创建的。support.Enqueue(msg)
 
     func (cs *chainSupport) Enqueue(env *cb.Envelope) bool {
 	    return cs.chain.Enqueue(env)
@@ -77,7 +77,7 @@ sbft的Request方法
     }
 
 对于本机的话会直接向队列中添加
-    
+
     msgEvent{chainId: chainID, msg: msg, src: src}    
 
 msgEvent类型的Execute为    
@@ -88,16 +88,16 @@ handleRequest
 
 如果当前node为primary node，且node为activeView时     
 
-    batches, committers, valid := s.sys.Validate(s.chainId, req) 
+    batches, committers, valid := s.sys.Validate(s.chainId, req)
 
 > 调用backend的Validate方法，blockcutter.go->Ordered()     
-> 
+>
 > 获取committer，是有configManager.Validate获取committer。
-> 
+>
 >     committer, err := r.filters.Apply(msg)     
-> 
+>
 > filters是在创建mutilchain/manager.go的NewManagerImpl中的createSystemChainFilters/createStandardFilte创建的。configtxfilter.NewFilter(ledgerResources)新建的configFilter。
-> 
+>
 > configFilter的Apply函数验证一些消息头，并调用cf.configManager.Validate(configEnvelope)来验证消息，并返回     
 
     &configCommitter{
@@ -116,4 +116,3 @@ handleRequest
     s.sendPreprepare(batch, committers)
 
 来进行sbft的共识阶段。    
-
