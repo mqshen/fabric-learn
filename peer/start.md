@@ -1,3 +1,13 @@
+### 先决条件    
+1. 部署 chaincode 需要 admin 权限，需要把部署用户的证书写入到 msp config 的admincerts 目录下    
+2. 验证机构的根证书，把根证书放入 cacerts 目录后，还需要在 config.yaml 中加入对应的配置如：    
+
+    OrganizationalUnitIdentifiers:
+      - Certificate: "cacerts/cacert.pem"
+        OrganizationalUnitIdentifier: "COP"
+      - Certificate: "cacerts/ca-cert.pem"
+        OrganizationalUnitIdentifier: "fabric-server"
+
 ### 启动     
 peer通过使用命令：      
 
@@ -32,5 +42,3 @@ peer通过使用命令：
 1. 创建文件系统的block store    
 2. 根据配置创建对应的transaction manager     
 3. 通过重新提交最后的有效区块来恢复状态数据库    
-
-
