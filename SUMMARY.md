@@ -15,4 +15,5 @@
     * [Join](channel/join.md)
 * [ChainCode](chaincode/README.md)
     * [启动](chaincode/start.md)
+    * [数据管理](chaincode/dataManager.md)
 * [Gossip](gossip/README.md)
