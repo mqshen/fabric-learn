@@ -1,7 +1,7 @@
 #### ProcessProposal     
 core/endorser/endorser.go->ProcessProposal     
 core/peer/msgvalidation.go->ValidateProposalMessage  //验证proposal并返回proposal      
-core/endorser/endorser.go->checkACL                  //权限校验，目前处在FAB-2457- we need to fix this right
+core/endorser/endorser.go->checkACL                  //权限校验，调用policyChecker.CheckPolicy来进行权限校验
 core/endorser/endorser.go->getTxSimulator            //根据proposal提供的ChainID获取transaction simulator     
 core/endorser/endorser.go->simulateProposal          //simulate chaincode调用      
 core/endorser/endorser.go->endorseProposal           //通过调用ESCC来为proposal背书      

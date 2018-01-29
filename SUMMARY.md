@@ -5,6 +5,7 @@
     * [交易](peer/transaction/README.md)
         * [ProcessProposal](peer/transaction/ProcessProposal.md)
         * [ExecuteChaincode](peer/transaction/ExecuteChaincode.md)
+    * [Commit](peer/commit.md)
 * [Orderer](orderer/README.md)
     * [启动](orderer/start.md)
     * [Broadcast Handler](orderer/broadcast.md)
@@ -17,3 +18,4 @@
     * [启动](chaincode/start.md)
     * [数据管理](chaincode/dataManager.md)
 * [Gossip](gossip/README.md)
+* [存储](store/README.md)
